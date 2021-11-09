@@ -1,0 +1,8 @@
+table {
+    table-layout: fixed;
+}
+
+#origin_data{
+    /* table-layout: fixed; */
+    width: 100%;
+}

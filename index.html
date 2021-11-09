@@ -1,262 +1,39 @@
 <html lang="ja">
 
 <head>
-  <meta charset="utf-8">
-　<title>グラフ</title> 
+    <meta charset="utf-8">
+    <title>契約者アンケート分析グラフ</title> 
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <h2>契約者アンケート結果</h2>
 
-  <!-- 回答情報の元データ -->
-  <table border="1" id="origin_data">
+<body>
+    <h2>契約者アンケート結果</h2>
+    <!-- 回答情報の元データ -->
+    <table border="1" id="origin_data">
     <tr>
-      <th>回答者</th>
-      <th>親切さ</th>
-      <th>わかりやすさ</th>
-      <th>清潔感</th>
-      <th>知識</th>
-      <th>その他</th>
-      <th>電話対応</th>
-      <th>WEBページのデザイン</th>
-      <th>予約の取りやすさ</th>
-      <th>資料の内容</th>
-      <th>その他</th>
+      <th id="titles">&nbsp;</th>
     </tr>
     <tr>
-      <td>Aさん</td>
-      <td>5</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>4</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>2</td>
+    　<td id="answers1">&nbsp;</td>
     </tr>
     <tr>
-      <td>Bさん</td>
-      <td>1</td>
-      <td>5</td>
-      <td>1</td>
-      <td>5</td>
-      <td>1</td>
-      <td>5</td>
-      <td>1</td>
-      <td>1</td>
-      <td>5</td>
-      <td>4</td>
+      <td id="answers2">&nbsp;</td>
     </tr>
     <tr>
-      <td>Cさん</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>3</td>
-      <td>2</td>
-      </tr>
+      <td id="answers3">&nbsp;</td>
+    </tr>
   </table>
+
 
   <!-- javascriptを起動させるボタンを配置 -->
   <button id="button0" onclick="button0()">集計データ表</button>
   <button id="button1" onclick="button1()">営業への評価</button>
-  <button id="button1" onclick="button2()">WEBへの評価</button>
-  <button id="button1" onclick="button3()">満足度</button>
+  <button id="button2" onclick="button2()">WEBへの評価</button>
+  <button id="button3" onclick="button3()">満足度</button>
 
   <canvas id="myRaderChart"></canvas>
 　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="index.js"></script>
 
-  <script>
-    // 元集計データの表示非表示を切り替える
-    document.getElementById("origin_data").style.display ="none";
-    function button0(){
-        const origin_data = document.getElementById("origin_data");
-        if(origin_data.style.display=="block"){
-		origin_data.style.display ="none";
-	    }else{
-		origin_data.style.display ="block";
-	    }
-    }
-
-    // 営業への評価に関するグラフを表示させる
-    function button1(){
-        let answers = [[5, 1, 2, 1, 2], [1, 5, 1, 5, 1], [3, 3, 3, 3, 3]]
-        var ctx = document.getElementById("myRaderChart");
-        var myRadarChart = new Chart(ctx, {
-            type: 'radar', 
-            data: { 
-                labels: ["親切さ", "わかりやすさ", "清潔感", "知識", "その他"],
-                datasets: [{
-                    label: 'Aさん',
-                    // data: [5, 1, 2, 1, 2],
-                    data: answers[0],
-                    backgroundColor: 'RGBA(225,95,150, 0.2)',
-                    borderColor: 'RGBA(225,95,150, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }, {
-                    label: 'Bさん',
-                    // data: [1, 5, 1, 5, 1],
-                    data: answers[1],
-                    backgroundColor: 'RGBA(115,255,25, 0.2)',
-                    borderColor: 'RGBA(115,255,25, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }, {
-                    label: 'Cさん',
-                    // data: [1, 5, 1, 5, 1],
-                    data: answers[2],
-                    backgroundColor: 'RGBA(30,144,255, 0.2)',
-                    borderColor: 'RGBA(30,144,255, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: '営業への評価',
-                    fontSize: 20,
-                    padding: 30
-                },
-                scale: {
-                    pointLabels: {
-                        fontSize: 20,
-                    },
-                    ticks: {
-                        fontSize:15,
-                        suggestedMin: 0,
-                        suggestedMax: 5,
-                        stepSize: 1,
-                        callback: function(value, index, values){
-                            return  value +  '点'
-                        }
-                    },
-                },
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        boxWidth: 60,
-                        fontSize: 20,
-                        padding: 20
-                    },
-                },
-            }
-        });
-    }
-    
-
-    // WEBへの評価に関するグラフを表示させる
-    function button2(){
-        let answers = [[4, 2, 3, 4, 2], [5, 1, 1, 5, 4], [2, 3, 4, 3, 2]]
-        var ctx = document.getElementById("myRaderChart");
-        var myRadarChart = new Chart(ctx, {
-            type: 'radar', 
-            data: { 
-                labels: ["電話対応", "WEBページのデザイン", "予約の取りやすさ", "資料の内容", "その他"],
-                datasets: [{
-                    label: 'Aさん',
-                    // data: [5, 1, 2, 1, 2],
-                    data: answers[0],
-                    backgroundColor: 'RGBA(243,152,0, 0.2)',
-                    borderColor: 'RGBA(243,152,0, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }, {
-                    label: 'Bさん',
-                    // data: [1, 5, 1, 5, 1],
-                    data: answers[1],
-                    backgroundColor: 'RGBA(148,87,164, 0.2)',
-                    borderColor: 'RGBA(148,87,164, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }, {
-                    label: 'Cさん',
-                    // data: [1, 5, 1, 5, 1],
-                    data: answers[2],
-                    backgroundColor: 'RGBA(115,255,25, 0.2)',
-                    borderColor: 'RGBA(115,255,25, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'WEBへの評価',
-                    fontSize: 20,
-                    padding: 30
-                },
-                scale: {
-                    pointLabels: {
-                        fontSize: 20,
-                    },
-                    ticks: {
-                        fontSize:15,
-                        suggestedMin: 0,
-                        suggestedMax: 5,
-                        stepSize: 1,
-                        callback: function(value, index, values){
-                            return  value +  '点'
-                        }
-                    },
-                },
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        boxWidth: 60,
-                        fontSize: 20,
-                        padding: 20
-                    },
-                },
-            }
-        });
-    }
-    
-
-    // 満足度に関するグラフを表示させる
-    function button3(){
-        let answers = [[20, 5, 8, 12]]
-        var ctx = document.getElementById("myRaderChart");
-        var myRadarChart = new Chart(ctx, {
-            type: 'doughnut', 
-            data: { 
-                labels: ["とても満足", "満足", "不満", "とても不満"],
-                datasets: [{
-                    data: answers[0],
-                    backgroundColor: [
-                        'RGBA(243,152,0, 0.2)',
-                        'RGBA(115,255,25, 0.2)',
-                        'RGBA(30,144,255, 0.2)',
-                        'RGBA(148,87,164, 0.2)',
-                    ],
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: '満足度',
-                    fontSize: 20,
-                    padding: 30
-                },
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        boxWidth: 60,
-                        fontSize: 20,
-                        padding: 20
-                    },
-                },
-            }
-        });
-    }
-    
-</script>
 </body>
 </html>
