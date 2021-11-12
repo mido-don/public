@@ -12,13 +12,15 @@ function button0(){
 
 
 // 回答があったと想定して仮で設定
-let titles = ['回答者', '親切さ', 'わかりやすさ', '清潔感', '知識', 'その他', '電話対応', 'WEBページのデザイン', '予約の取りやすさ', '資料の内容', 'その他']
-let answers1 = ['Aさん', 5, 1, 2, 1, 2, 4, 2, 3, 4, 2]
-let answers2 = ['Bさん', 3, 3, 3, 3, 3, 2, 3, 4, 3, 2]
-let answers3 = ['Cさん', 1, 5, 1, 5, 1, 5, 1, 1, 5, 4]
+let titles = ['回答者', '親切さ', 'わかりやすさ', '清潔感', '知識', 'その他', 
+                '電話対応', 'WEBページのデザイン', '予約の取りやすさ', '資料の内容', 'その他'];
+let answer_list = [];
+answer_list.push(['Aさん', 5, 1, 2, 1, 2, 4, 2, 3, 4, 2]);
+answer_list.push(['Bさん', 3, 3, 3, 3, 3, 2, 3, 4, 3, 2]);
+answer_list.push(['Cさん', 1, 5, 1, 5, 1, 5, 1, 1, 5, 4]);
 
 // htmlのテーブルのセルを、質問数分だけクローンする
-let ids = ['titles', 'answers1', 'answers2', 'answers3', ]
+let ids = ['titles', 'answers1', 'answers2', 'answers3', ];
 for (const id of ids){
     for (var i = 0; i < titles.length-1; i++) {
         var elm_area = document.getElementById(id);
@@ -34,12 +36,12 @@ for (let h = 0; h < titles.length; h++) {
     td.firstChild.nodeValue = titles[h];
 }
 // htmlのテーブルの各セルに、answersの内容を転記
-for (let n = 0; n < 3; n++) {
-    for (let k = 0; k < answers1.length; k++) {
+for (let n = 0; n < answer_list.length; n++) {
+    for (let k = 0; k < answer_list[n].length; k++) {
         var table = document.getElementById('origin_data');
         var tr = table.rows[n+1];
         var td = tr.cells[k];
-        td.firstChild.nodeValue = answers1[k];
+        td.firstChild.nodeValue = answer_list[n][k];
     }
 }
 
@@ -53,22 +55,22 @@ function button1(){
         data: { 
             labels: titles.slice(1, 6),
             datasets: [{
-                label: answers1[0],
-                data: answers1.slice(1, 6),
+                label: answer_list[0][0],
+                data: answer_list[0].slice(1, 6),
                 backgroundColor: 'RGBA(225,95,150, 0.2)',
                 borderColor: 'RGBA(225,95,150, 1)',
                 borderWidth: 1,
                 pointBackgroundColor: 'RGB(46,106,177)'
             }, {
-                label: answers2[0],
-                data: answers2.slice(1, 6),
+                label: answer_list[1][0],
+                data: answer_list[1].slice(1, 6),
                 backgroundColor: 'RGBA(115,255,25, 0.2)',
                 borderColor: 'RGBA(115,255,25, 1)',
                 borderWidth: 1,
                 pointBackgroundColor: 'RGB(46,106,177)'
             }, {
-                label: answers3[0],
-                data: answers3.slice(1, 6),
+                label: answer_list[2][0],
+                data: answer_list[2].slice(1, 6),
                 backgroundColor: 'RGBA(30,144,255, 0.2)',
                 borderColor: 'RGBA(30,144,255, 1)',
                 borderWidth: 1,
