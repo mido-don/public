@@ -1,39 +1,143 @@
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <title>契約者アンケート分析グラフ</title> 
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タカラレーベン</title>
+    <link rel="stylesheet" href="original.css">
+    <script type="text/javascript" src="original.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="footerFixed.js"></script> 
 </head>
 
 <body>
-    <h2>契約者アンケート結果</h2>
-    <!-- 回答情報の元データ -->
-    <table border="1" id="origin_data">
-    <tr>
-      <th id="titles">&nbsp;</th>
-    </tr>
-    <tr>
-    　<td id="answers1">&nbsp;</td>
-    </tr>
-    <tr>
-      <td id="answers2">&nbsp;</td>
-    </tr>
-    <tr>
-      <td id="answers3">&nbsp;</td>
-    </tr>
-  </table>
+<img id="top_picture" src="top_blue.JPG" alt="タカラレーベンご契約者様アンケートトップページ">
+<form action="#" method="post">
 
 
-  <!-- javascriptを起動させるボタンを配置 -->
-  <button id="button0" onclick="button0()">集計データ表</button>
-  <button id="button1" onclick="button1()">営業への評価</button>
-  <button id="button2" onclick="button2()">WEBへの評価</button>
-  <button id="button3" onclick="button3()">満足度</button>
+    <!-- 見出し -->
+    <!-- <h1>タカラレーベンご契約者様アンケート</h1> -->
 
-  <canvas id="myRaderChart"></canvas>
-　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-  <script src="index.js"></script>
+    <!-- 契約物件選択 -->
+    <!-- <div class="block">
+        <p><li type="1" name="question">ご契約いただいた物件を下記よりお選びください</li></p>
+        <div name="answer">
+            <select name="PJ_select">
+                <option value="--選択してください--" selected>----  選択  ----</option>
+                <option value="レーベン小田原">レーベン小田原</option>
+                <option value="レーベン山手">レーベン山手</option>
+                <option value="レーベン学園前">レーベン学園前</option>
+            </select>
+        </div>
+    </div> -->
+
+    <div class="block">
+        <p>[アンケートの個人情報について]</p>
+        <p></p>
+        <p>本アンケートでご記入いただいた情報は、弊社の商品・サービス等の企画、お客様満足度向上施策検討の目的でのみ利用させていただきます。尚、ご協力いただいた結果は、統計的に処理いたします。個人を特定する情報として公表させることはありません。</p>
+    </div>
+
+    <!-- 接客に関する質問 -->
+    <!-- <p><li type="1" name="question">対応した営業スタッフについてお応えください</li></p>
+        <div name="answer">
+            <input type="radio" name="good_bad" id="verygood" value="verygood">
+            <label for="verygood">とても良い</label>
+
+            <input type="radio" name="good_bad" id="good" value="good">
+            <label for="good">良い</label>
+
+            <input type="radio" name="good_bad" id="ordinary" value="ordinary">
+            <label for="ordinary">普通</label>
+
+            <input type="radio" name="good_bad" id="bad" value="bad">
+            <label for="bad">悪い</label>
+
+            <input type="radio" name="good_bad" id="verybad" value="verybad">
+            <label for="verybad">とても悪い</label>
+        </div> -->
+
+    <!-- マンションに関する質問
+    <p><li type="1" name="question">当社マンションの魅力をすべてお選びください</li></p>
+        <div name="answer">
+            <input type="checkbox" name="charm" id="charm1" value="ブランド">
+            <label for="charm1">ブランド</label>
+
+            <input type="checkbox" name="charm" id="charm2" value="設備">
+            <label for="charm2">設備</label>
+
+            <input type="checkbox" name="charm" id="charm3" value="デザイン">
+            <label for="charm3">デザイン</label>
+
+            <input type="checkbox" name="charm" id="charm4" value="立地">
+            <label for="charm4">立地</label>
+
+            <input type="checkbox" name="charm" id="charm5" value="価格">
+            <label for="charm5">価格</label>
+        </div>
+
+    <!-- その他 -->
+    <!-- <p><li type="1" name="question">自由記入欄</li></p>
+    <div name="answer">
+        <textarea cols="60" rows="6"></textarea>
+    </div> -->
+    
+    <!-- お客様情報 -->
+    <!-- <p><li type="1" name="question">お名前</li></p>
+    <div name="answer">
+        <input type="text">
+    </div> -->
+
+    <!-- 送信 -->
+    <!-- <p><input type="submit" value="次の設問"></p> -->
+
+    
+</form>
+
+
+<!-- <div class="flex-container">
+    <div class="flex-item">子要素アイテム1</div>
+    <div class="flex-item">子要素アイテム2</div>
+    <div class="flex-item">子要素アイテム3</div>
+</div> -->
+
+<!-- <div class="container">
+    <div class="item">タカラレーベン</div>
+    <div class="item">契約者アンケート</div>
+    <div class="item">お問い合わせ</div>
+</div> -->
+
+
+<!-- アコーディオンメニュー
+    <section class="accordion">
+    <div class="accordion__container">
+        <h4 class="accordion__title js-accordion-title">タカラレーベンについて</h4>
+        <div class="accordion__content">会社概要</div>
+        
+        <h4 class="accordion__title js-accordion-title">契約者アンケートについて</h4>
+        <div class="accordion__content">注意事項</div>
+
+        <h4 class="accordion__title js-accordion-title">お問い合わせ</h4>
+        <div class="accordion__content">メールによるお問い合わせ</div>
+    </div>
+</section> -->
+
+<div class="back_next">
+    <!-- <a href="" class="btn btn-border-shadow btn-border-shadow--color2">前へ</a> -->
+    <a href="" class="btn btn-border-shadow btn-border-shadow--color2">次へ</a>
+</div>
+
+<!-- <footer class="answer_progress">
+    <label for="answer_progress">進捗率:</label>
+    <progress id="answer_progress" max="100" value="20"> 20% </progress>
+</footer> -->
+
+<footer id="footer" class="copyright">
+    <p>Copyright © Takara Leben group. ALL RIGHTS RESERVED.</p>
+</footer>
 
 </body>
+
+
 </html>

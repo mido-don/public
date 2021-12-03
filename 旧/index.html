@@ -1,0 +1,39 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>契約者アンケート分析グラフ</title> 
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h2>契約者アンケート結果</h2>
+    <!-- 回答情報の元データ -->
+    <table border="1" id="origin_data">
+    <tr>
+      <th id="titles">&nbsp;</th>
+    </tr>
+    <tr>
+    　<td id="answers1">&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="answers2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="answers3">&nbsp;</td>
+    </tr>
+  </table>
+
+
+  <!-- javascriptを起動させるボタンを配置 -->
+  <button id="button0" onclick="button0()">集計データ表</button>
+  <button id="button1" onclick="button1()">営業への評価</button>
+  <button id="button2" onclick="button2()">WEBへの評価</button>
+  <button id="button3" onclick="button3()">満足度</button>
+
+  <canvas id="myRaderChart"></canvas>
+　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
