@@ -25,7 +25,7 @@
   }
 
   p {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
   }
 
   [id="top_picture"] {
@@ -36,13 +36,17 @@
     height: auto;
     width: 100vw;
     margin: 0 0 0 0;
-    padding: 0;
+    /* padding: 0 ; */
     color: rgb(82, 82, 82);
     font-size: 2.5rem;
     font-weight: bold;
     border-top: 0;
     line-height: 1.5;
   }
+
+  /* [name="good_bad"] {
+    margin: 0vw 2vw 2vw 0vw;
+  } */
 
   [class="block"] {
     height: auto;
@@ -60,6 +64,10 @@
     font-weight: bold;
     border-top: 0;
     line-height: 1.5;
+  }
+
+  [class="sales_staff_question"] {
+    margin: 0vw 0vw 4vw 0vw;
   }
 
   [class="copyright"] {
@@ -84,15 +92,21 @@
     text-align: center;
   }
 
-  [name="answer"] {
+  [name="radio_selection"] {
+    display: inline-block;
+    margin: 0vw 4vw 0vw 0vw;
+  }
+
+  [class="answer"] {
     height: auto;
-    margin: 0px 0 0 0;
-    padding: 0;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-    font-weight: auto;
+    /* margin: 0px 0 0 0; */
+    /* padding: 0 0 0 10vw; */
+    color: rgb(82, 82, 82);
+    font-size: 2vw;
+    /* font-weight: auto; */
     border-top: 0;
     line-height: 1.5;
+    text-align: center;
   }
 
   [name="PJ_select"] {
